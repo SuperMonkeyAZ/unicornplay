@@ -73,29 +73,32 @@ function checkWin(){
     }
 }
 function checkIfComputerIsNeeded() {
-    if (document.getElementById("Computer").clicked == true) {
-        return true
-    } else {
-        return false
-    }
+    return document.getElementById("Computer").checked
 }
 function computer() {
     let randomBox = Math.floor(Math.random() * 9)
-    if (board[randomBox] == 0){
+    if (board[randomBox] === 0){
         //What would the element be?
-        board[randomBox] = 2
+        document.getElementById(randomBox).innerHTML = "<img src = \"cross.png\">";
+        board[randomBox] = 2;
+    }else{
+        computer();
     }
 }
-//change checks if updateBoard returns true or false and runs the other function if it returns true
-if(checkIfComputerIsNeeded===true){
 
-}else
 function change(element, index) {
-    if (game_ended){
+    if (game_ended) {
         return;
     }
-    if (updateBoard(element, index)){
+    if (updateBoard(element, index)) {
         updateTurn();
         game_ended = checkWin();
+        if (!game_ended) {
+            if (checkIfComputerIsNeeded && who_is_next === 2) {
+                computer();
+                updateTurn();
+                game_ended = checkWin();
+            }
+        }
     }
 }
