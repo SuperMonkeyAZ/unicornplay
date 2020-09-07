@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html>
 
 <head>
     <title>Tic Tac Toe</title>
@@ -8,6 +8,11 @@
 <body>
     <h1> Tic Tac Toe!</h1>
     <h2 id="demo"></h2>
+    <form>
+
+        <input type="checkbox" id="Computer" name="Computer" value="Computer">
+        <label for="Computer">Computer</label>
+    </form>
 
 
     <div class="grid">
@@ -20,10 +25,10 @@
         <div onclick="change(this, 6)" class="square"></div>
         <div onclick="change(this, 7)" class="square"></div>
         <div onclick="change(this, 8)" class="square"></div>
-      </div>
+    </div>
 
 </body>
-    <script src="app.js"></script> 
-    <script>document.getElementById("demo").innerHTML = "Player 1's turn"</script>
-        
+<script src="app.js"></script>
+<script>document.getElementById("demo").innerHTML = "Player 1's turn"</script>
+
 </html>
